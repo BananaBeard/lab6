@@ -11,13 +11,27 @@ public class LabController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public @ResponseBody String test(@RequestParam String arg, @RequestParam String step){
         int sum = Integer.parseInt(arg) + Integer.parseInt(step);
+        String msg = "";
 
         int i = Integer.parseInt(step);
+        double argument = Double.parseDouble(arg);
+        boolean err = false;
 
+        if (i % 1 != 0 || i <= 0) {
+            err = true;
+            msg += "Step must be > 0!!!";
+        }
 
-        Function func = new Function(Double.parseDouble(first));
-        return func.teylor(Double.parseDouble(first), Integer.parseInt(second));
+        if (argument < 0){
+            err = true;
+            msg += "Argument must be >= 0!!!";
+        }
 
-        //return first + " + " + second + " = " + sum;
+        if (err){
+            return msg;
+        }else {
+            Function func = new Function(argument);
+            return func.teylor(argument, i);
+        }
     }
 }

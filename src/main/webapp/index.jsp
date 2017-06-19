@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -12,6 +12,7 @@
                     },
                     function(data){
                         document.getElementById("result").value = data;
+                        alert(data);
                     });
             });
         });
@@ -20,7 +21,7 @@
 <body>
 <h2>Hello World!</h2>
 <input id="x">
-<input id="n">
+<input id="n" min="0" step="1">
 <button id="test">TEST</button>
 <input id="result">
 </body>

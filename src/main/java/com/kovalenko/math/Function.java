@@ -25,20 +25,16 @@ public class Function {
         //int i = 1;
         int k = -1;
         double f = Math.sqrt(x);
-        String formattedF = String.format("%.5f", f);
-        System.out.print("f(x) = " + formattedF + " + ");
+
         while(Math.abs(q) > accuracy){
             double n = Math.pow(2, i);
             sum1 = (Math.pow(k, i+1))/(n*Math.pow(x, i-0.5));
             q = Math.abs(sum1) - Math.abs(sum2);
             sum2 = Math.abs(sum1);
             f+=sum1;
-            String formattedDouble = String.format("%.7f", sum1/factorial(i));
-             System.out.print( formattedDouble + "(x - " + x + ") ");
             i++;
         }
         String formattedF2 = String.format("%.10f", f);
-        System.out.println("\n"+"Final answer is "+formattedF2);
 
         return formattedF2;
     }
