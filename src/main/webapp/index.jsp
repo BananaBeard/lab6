@@ -7,8 +7,8 @@
             $("#test").click(function(){
                 $.get("/test",
                     {
-                        first: document.getElementById("x").value,
-                        second: document.getElementById("n").value
+                        arg: document.getElementById("x").value,
+                        step: document.getElementById("n").value
                     },
                     function(data){
                         document.getElementById("result").value = data;

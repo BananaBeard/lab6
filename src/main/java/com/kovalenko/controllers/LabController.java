@@ -1,5 +1,6 @@
 package com.kovalenko.controllers;
 
+import com.kovalenko.math.Function;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,9 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class LabController {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public @ResponseBody String test(@RequestParam String first, @RequestParam String second){
-        int sum = Integer.parseInt(first) + Integer.parseInt(second);
+    public @ResponseBody String test(@RequestParam String arg, @RequestParam String step){
+        int sum = Integer.parseInt(arg) + Integer.parseInt(step);
 
-        return first + " + " + second + " = " + sum;
+        int i = Integer.parseInt(step);
+
+
+        Function func = new Function(Double.parseDouble(first));
+        return func.teylor(Double.parseDouble(first), Integer.parseInt(second));
+
+        //return first + " + " + second + " = " + sum;
     }
 }
